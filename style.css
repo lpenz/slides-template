@@ -1,0 +1,19 @@
+strong {
+    color: orange;
+}
+em {
+    color: brown;
+}
+strong em {
+    color: red;
+}
+code {
+    color: lightgreen;
+}
+.math {
+    color: grey;
+}
+.math em {
+    color: grey;
+}
+

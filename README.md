@@ -1,4 +1,4 @@
-# slides-template
+# The basics
 
 
 ## What do we have here
@@ -7,7 +7,10 @@
 markdown-based slide presentation, and it can also be used as a
 template.
 
-And this `README.md` file **is** the presentation example.
+- This `README.md` file **is** the presentation example.
+
+- The generated deck is deployed
+  [here](https://www.lpenz.org/slides-template/).
 
 
 ## Writing the slides
@@ -25,9 +28,10 @@ And markdown is also available for the *presenter* notes.
 
 ## `build.sh`
 
-- Very simple script that does all of the work.
+- Core of the repository: very simple script that does all of the work.
 - Uses the [pandoc/core](https://hub.docker.com/r/pandoc/core) docker image.
-- Gets the input file, the output file and the title as arguments.
+- Gets the input file, the output file, a style (css) file and the
+  title as arguments.
 
 ::: notes
 
@@ -46,14 +50,15 @@ Lists:
 - **bold**
 - *italic*
 - ***bold-italic***
+- `monospace`
 
 > blockquote
 
 
 ## of reveal.js
 
-- Press "`o`" to have an overview of the 2D layout.
-- Press "`s`" for the speaker notes
+- Press **o** to have an overview of the 2D layout.
+- Press **s** for the speaker notes
 
 ::: notes
 
@@ -68,7 +73,7 @@ Which include the text in these blocks
 
 - Some math formulas:
 $$ e^{i \pi} - 1 = 0 $$
-- Easy speaker notes.
+- Easy speaker notes (press **s**).
 
 ::: notes
 
