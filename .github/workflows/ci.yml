@@ -1,0 +1,36 @@
+---
+name: CI
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  omnilint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.6.0
+      - uses: docker://lpenz/omnilint:0.5.1
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.6.0
+      - run: ./build.sh
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs:
+      - omnilint
+      - build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v3.6.0
+      - run: ./build.sh
+      - uses: actions/configure-pages@v3.0.6
+      - uses: actions/upload-pages-artifact@v2.0.0
+        with:
+          path: '.'
+      - uses: actions/deploy-pages@v2.0.4
+        id: deployment
